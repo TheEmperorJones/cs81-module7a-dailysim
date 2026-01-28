@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Daily Schedule Simulation</title>
+</head>
+    <style>
+        h1 {
+            font-size: 60px;
+        }
+    </style>
+<body style="font-family: sans-serif; text-align: center; padding-top: 60px; background-color: lightgrey;">
+
+  <h1>My Simulated Day</h1>
+  <div id="output" style="margin-top: 40px; font-size: 1.5rem;"></div>
+  <div id="image" style="font-size: 3rem; margin-bottom: 20px;">What is that noise?!</div>
+  <div id="status" style="font-size: 2rem;">(I am jarred awake by an infernal sound.)</div>
+
+  <script>
+    const output = document.getElementById("output");
+    
+    function runLoadingAnimation() {
+      const image = document.getElementById("image");
+      const status = document.getElementById("status");
+
+      const imageFrames = ["⏰️", "💼", "💼", "💼", "🍽", "🧋", "📕", "🥛", "🛌"];
+      let index = 0;
+      let cycleCount = 0;
+      const maxCycles = 1;
+
+      const textFrames = ["I awake.", "I work.", "I work some more.", "I'm a working fool.", "I eat something.", "I drink something.", "I read something.", "I have a glass of warm milk (don't judge me!).", "I go to bed."];
+      let indexStatus = 0;
+      let textCycleCount = 0;
+      const maxImageCycles = 1;
+
+      const interval = setInterval(() => {
+        image.textContent = imageFrames[index % imageFrames.length];
+        status.textContent = textFrames[index % textFrames.length];
+        index++;
+        if (index % imageFrames.length === 0) {
+          cycleCount++;
+        }
+        if (index % textFrames.length === 0) {
+          cycleCount++;
+        }
+        if (cycleCount >= maxCycles) {
+          clearInterval(interval);
+          image.textContent = "🌙";
+          status.textContent = "The day is done.";
+        }
+      }, 1250);
+    }
+
+    runLoadingAnimation();
+  </script>
+
+</body>
+</html>

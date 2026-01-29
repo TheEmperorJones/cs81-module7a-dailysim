@@ -4,60 +4,66 @@
   <meta charset="UTF-8">
   <title>My Daily Schedule Simulation</title>
 </head>
-    <style>
-        h1 {
-            font-size: 60px;
-        }
-    </style>
-<body style="font-family: sans-serif; text-align: center; padding-top: 60px; background-color: lightgrey;">
-
-<!-- <p style="font-size: 2rem; position: fixed; bottom: 20px; left: 0; width: 100%; text-align: center; margin: 0;">
-  This is super random.
-</p> -->
-
+<body style="font-family: sans-serif; text-align: center; padding-top: 60px; background-color: #eef;">
 
   <h1>My Simulated Day</h1>
-  <div id="output" style="margin-top: 40px; font-size: 1.5rem;"></div>
-  <div id="image" style="font-size: 3rem; margin-bottom: 20px;">What is that noise?!</div>
-  <div id="status" style="font-size: 2rem;">(I am jarred awake by an infernal sound.)</div>
-  
-<script>
+  <div id="output" style="margin-top: 40px; font-size: 2rem;"></div>
+  <div id="granny" style="margin-top: 500px; text-align: left; font-size: 2rem;"></div>
+
+  <script>
     const output = document.getElementById("output");
-    
-    function runLoadingAnimation() {
-      const image = document.getElementById("image");
-      const status = document.getElementById("status");
+    const granny = document.getElementById("granny");
 
-      const imageFrames = ["⏰️", "💼", "💼", "💼", "🍽", "🧋", "📕", "🥛", "🛌"];
-      let index = 0;
-      let cycleCount = 0;
-      const maxCycles = 1;
+setTimeout(() => { granny.textContent = ""; }, 0);
+setTimeout(() => { output.textContent = "I awake at 4am 🕓"; }, 1000);
+setTimeout(() => { output.textContent = ""; }, 2000);
+setTimeout(() => { output.textContent = "I grab a cup of tea at 5am 🍵"; }, 3000);
+setTimeout(() => { output.textContent = ""}, 4000);
+setTimeout(() => { output.textContent = "I take a shower at 6am 🚿"}, 5000);
+setTimeout(() => { output.textContent = ""}, 6000);
+setTimeout(() => { output.textContent = "I scarf breakfast at 7am 🥞"}, 7000);
+setTimeout(() => { output.textContent = ""}, 8000);
+setTimeout(() => { output.textContent = "I head for the bus at 8am 🚍"}, 9000);
+setTimeout(() => { output.textContent = ""}, 10000);
+setTimeout(() => { output.textContent = "I get to work at 9am 🗄️"}, 11000);
+setTimeout(() => { output.textContent = ""}, 12000);
+setTimeout(() => { output.textContent = "I talk to some co-workers at 10am 👩‍💼"}, 13000);
+setTimeout(() => { output.textContent = ""}, 14000);
+setTimeout(() => { output.textContent = "I write some emails at 11am 📧"}, 15000);
+setTimeout(() => { output.textContent = ""}, 16000);
+setTimeout(() => { output.textContent = "I take a ridiculously long lunch at 12pm 🍱"}, 17000);
+setTimeout(() => { output.textContent = "I take a ridiculously long lunch at 12pm .🍱"}, 17500);
+setTimeout(() => { output.textContent = "I take a ridiculously long lunch at 12pm ..🍱"}, 18000);
+setTimeout(() => { output.textContent = "I take a ridiculously long lunch at 12pm ...🍱"}, 18500);
+setTimeout(() => { output.textContent = "I take a ridiculously long lunch at 12pm ....🍱"}, 19000);
+setTimeout(() => { output.textContent = "I take a ridiculously long lunch at 12pm .....🍱"}, 19500);
+setTimeout(() => { output.textContent = ""}, 20000);
+setTimeout(() => { output.textContent = "I take a quick nap at 2pm 💤"}, 21000);
+setTimeout(() => { output.textContent = ""}, 22000);
+setTimeout(() => { output.textContent = "I'm back at my desk but unmotivated at 3pm 😓"}, 23000);
+setTimeout(() => { output.textContent = ""}, 24000);
+setTimeout(() => { output.textContent = "I plow through until the whistle blows at 5pm 🔔"}, 25000);
+setTimeout(() => { output.textContent = ""}, 28000);
+setTimeout(() => { output.textContent = "Traffic is terrible.  Bus will barely budge .....🚌"}, 29000);
+setTimeout(() => { output.textContent = "Traffic is terrible.  Bus will barely budge ....🚌"}, 30000);
+setTimeout(() => { granny.textContent = "Seriously, though: What is dear ol' granny 🍏 doing over there on the corner?"}, 30000);
+setTimeout(() => { output.textContent = "Traffic is terrible.  Bus will barely budge ...🚌"}, 31000);
+setTimeout(() => { output.textContent = "Traffic is terrible.  Bus will barely budge ..🚌"}, 32000);
+setTimeout(() => { output.textContent = "Traffic is terrible.  Bus will barely budge .🚌"}, 33000);
+setTimeout(() => { output.textContent = "Traffic is terrible.  Bus will barely budge 🚌"}, 34000);
+setTimeout(() => { granny.textContent = ""}, 34500);
+setTimeout(() => { output.textContent = "Gee, ain't it great to be back home 🏡"}, 35000);
+setTimeout(() => { output.textContent = ""}, 36000);
+setTimeout(() => { output.textContent = "I indulge in a European dinner at 9pm 🍕"}, 37000 );
+setTimeout(() => { output.textContent = ""}, 38000);
+setTimeout(() => { output.textContent = "Brush the toothies, floss 'em right, ev'ry night at 10pm 🦷"}, 39000);
+setTimeout(() => { output.textContent = ""}, 41000);
+setTimeout(() => { output.textContent = "I say my prayers and doomscroll a bit, against my better judgment at 11pm 📱"}, 42000);
+setTimeout(() => { output.textContent = ""}, 43000);
+setTimeout(() => { output.textContent = "Lights out and I'm quickly asleep by midnight 🛌"}, 44000);
 
-      const textFrames = ["I awake.", "I work.", "I work some more.", "I'm a working fool.", "I eat something.", "I drink something.", "I read something.", "I have a glass of warm milk (don't judge me!).", "I go to bed."];
-      let indexStatus = 0;
-      let textCycleCount = 0;
-      const maxImageCycles = 1;
-
-      const interval = setInterval(() => {
-        image.textContent = imageFrames[index % imageFrames.length];
-        status.textContent = textFrames[index % textFrames.length];
-        index++;
-        if (index % imageFrames.length === 0) {
-          cycleCount++;
-        }
-        if (index % textFrames.length === 0) {
-          cycleCount++;
-        }
-        if (cycleCount >= maxCycles) {
-          clearInterval(interval);
-          image.textContent = "🌙";
-          status.textContent = "The day is done.";
-        }
-      }, 1250);
-    }
-
-    runLoadingAnimation();
   </script>
 
 </body>
 </html>
+  
